@@ -12,12 +12,18 @@ import { AuthSignInDto } from "../dto/auth.dto";
 @Controller('auth')
 export class AuthController {
 
+
     private readonly _clientProxy: ClientProxy;
 
 
     constructor(
         private readonly proxyProvider: ProxyProvider
     ) {
+        const authQueue = RabbitMQ().AuthQueue;
+
+        if (!authQueue) {
+            throw new Error("MQ_AUTH_QUEUE no está definido en .env");
+        }
         this._clientProxy = this.proxyProvider.clientProxyConfig(RabbitMQ().AuthQueue);
     }
 
