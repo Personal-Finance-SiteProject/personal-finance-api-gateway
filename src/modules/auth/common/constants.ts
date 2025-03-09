@@ -1,5 +1,6 @@
+
 export enum actionsSignIn {
-    SIGN_IN = 'AUTH_SIGN_IN',
+    SIGN_IN = 'SIGN_IN',
     AUTH_EXTERNAL_SIGNIN = 'AUTH_EXTERNAL_SIGNIN',
     RESET = 'AUTH_RESET',
     RECOVERY = 'AUTH_RECOVERY',

@@ -2,7 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import process from "process";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,6 +20,7 @@ async function bootstrap() {
   SwaggerModule.setup('doc', app, document);
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   await app.listen(port);
-  console.log(`Servicio API Gateway corriendo en el puerto: ${port}`)
+  console.log(`✅: Servicio API Gateway corriendo en el puerto: ${port}`)
 }
 bootstrap();
+
